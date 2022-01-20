@@ -8,7 +8,9 @@ def detect_object(frame):
     #names_path = os.path.abspath('yolo/obj.names')
 
     # Load Yolo
-    net = cv2.dnn_DetectionModel('yolov4-custom_last(1).weights','yolov4-custom.cfg')
+    try:
+        net = cv2.dnn_DetectionModel('yolov4-custom_last(1).weights','yolov4-custom.cfg')
+    except Exception as e: print(e)
     #net = cv2.dnn_DetectionModel(weights_path,cfg_path)
     net.setInputSize(256, 256)
     net.setInputScale(1.0 / 255)
